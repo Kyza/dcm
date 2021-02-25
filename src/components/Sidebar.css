@@ -1,0 +1,33 @@
+#sidebar {
+	max-height: 100vh;
+	overflow-y: auto;
+	overflow-x: hidden;
+
+	color: var(--text-dark);
+}
+
+#sidebar-wrapper {
+	background-color: var(--background2);
+	display: grid;
+	grid-template-columns: auto 24px;
+}
+
+#sidebar-toggle-button {
+	cursor: pointer;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+
+#sidebar-toggle-button-icon {
+	width: 22px;
+	transition-duration: 0.6s;
+	fill: var(--text-dark);
+}
+
+.sidebar-open #sidebar-toggle-button-icon {
+	transform: rotateZ(90deg);
+}
+.sidebar-closed #sidebar-toggle-button-icon {
+	transform: rotateZ(270deg);
+}

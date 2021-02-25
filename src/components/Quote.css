@@ -1,0 +1,14 @@
+.quote {
+	display: grid;
+
+	grid-template-columns: 4px auto;
+}
+
+.quote-bar {
+	border-radius: 4px;
+	background-color: #4f545c;
+}
+
+.quote-content {
+	padding-left: 12px;
+}
