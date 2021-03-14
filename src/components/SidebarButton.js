@@ -2,14 +2,15 @@ import { useLocation } from "react-router-dom";
 import Link from "./Link";
 import Hashtag from "./Hashtag";
 import "./SidebarButton.css";
+import { memo } from "react";
 
-export default function SidebarButton(props) {
+export default memo(function SidebarButton(props) {
 	const location = useLocation();
 
 	const marginLeft =
 		(props.depth ??
 			props.to.split("/").filter((f) => f.trim().length > 0).length) *
-			8 +
+			16 +
 		8;
 
 	return (
@@ -20,7 +21,7 @@ export default function SidebarButton(props) {
 			}
 			style={{
 				marginLeft: marginLeft + "px",
-				width: `calc(100% - ${marginLeft + 8}px)`,
+				width: `calc(100% - ${marginLeft}px)`,
 			}}
 			to={props.to}
 		>
@@ -30,4 +31,4 @@ export default function SidebarButton(props) {
 			</>
 		</Link>
 	);
-}
+});

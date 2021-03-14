@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { useSpring, animated } from "react-spring";
 
 import sidebar from "../stores/sidebar";
 import SidebarButton from "./SidebarButton";
 import "./Sidebar.css";
-import Menu from "./Menu";
+import { Menu } from "../components";
 
-export default function Sidebar() {
+export default memo(function Sidebar() {
 	const [sidebarOpen, setSidebarOpen] = useState(sidebar.getState().open);
 	const spring = useSpring({
 		opacity: sidebarOpen ? 1 : 0,
@@ -32,11 +32,17 @@ export default function Sidebar() {
 					</SidebarButton>
 					<SidebarButton to="/ban">Ban</SidebarButton>
 					<SidebarButton to="/3">Page 3</SidebarButton>
-					<SidebarButton depth="0" redirect to="/bd">
+					<SidebarButton depth="0" to="/concepts">
+						Programming Concepts
+					</SidebarButton>
+					<SidebarButton to="/concepts/webpack-modules">
+						Webpack & Modules
+					</SidebarButton>
+					<SidebarButton depth="0" redirect to="/betterdiscord">
 						Client Mods
 					</SidebarButton>
-					<SidebarButton to="/bd">BetterDiscord</SidebarButton>
-					<SidebarButton to="/bd/installing-addons">
+					<SidebarButton to="/betterdiscord">BetterDiscord</SidebarButton>
+					<SidebarButton to="/betterdiscord/installing-addons">
 						Installing Addons
 					</SidebarButton>
 					<SidebarButton
@@ -55,14 +61,14 @@ export default function Sidebar() {
 					>
 						Server
 					</SidebarButton>
-					<SidebarButton to="/pc">Powercord</SidebarButton>
+					<SidebarButton to="/powercord">Powercord</SidebarButton>
 					<SidebarButton depth="2" to="https://powercord.dev/installation">
 						Download
 					</SidebarButton>
 					<SidebarButton depth="2" to="https://discord.gg/gs4ZMbBfCh">
 						Server
 					</SidebarButton>
-					<SidebarButton to="/vz">Vizality</SidebarButton>
+					<SidebarButton to="/vizality">Vizality</SidebarButton>
 					<SidebarButton depth="2" to="https://github.com/vizality/vizality/">
 						Download
 					</SidebarButton>
@@ -84,4 +90,4 @@ export default function Sidebar() {
 			</div>
 		</>
 	);
-}
+});
